@@ -1,9 +1,10 @@
-import streamlit as st
-import os
-import google.generativeai as genai
+import streamlit as st #import streamlit with alies st
+import os #import os for environment variable 
+import google.generativeai as genai #import generativeai model gemini pro vision from google
 from PIL import Image
-
+from dotenv import load_dotenv #import dotenv for environment variable
 # Fetch the GOOGLE_API_KEY from the environment variable
+load_dotenv()
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 
 # Configure the genai library with the fetched API key
@@ -17,7 +18,7 @@ st.title("Ai Vision")
 user_input = st.text_input("Enter a prompt...")
 
 # Image upload
-uploaded_image = st.file_uploader("Upload an image[jpg,jpeg,png]", type=["jpg", "jpeg", "png"])
+uploaded_image = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
 # Generate button
 if st.button("Generate"):
